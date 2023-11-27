@@ -1,5 +1,5 @@
 from datetime import datetime
-from src.wahis.wahis_api import WAHISApi
+from network.wahis_api import WAHISApi
 from network.handle_concurrency import handle_concurrency
 
 

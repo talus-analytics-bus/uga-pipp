@@ -1,5 +1,5 @@
 import pytest
-from src.wahis.wahis_api import WAHISApi, WAHISApiError
+from network.wahis_api import WAHISApi, WAHISApiError
 
 
 @pytest.fixture(scope="module")
