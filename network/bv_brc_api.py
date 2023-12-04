@@ -2,9 +2,23 @@ import aiohttp
 from loguru import logger
 
 
-class BVBRC:
-    async def _bv_brc_api(self):
-        base_url = "https://patricbrc.org/api/"
+class BVBRCApi:
+    async def retrieve_data(self, data_type: str, count: int = 100) -> list:
+        results = []
+        counter = 0
+        empty = False
+
+        while not empty:
+            result = self._bv_brc_api(data_type=data_type, count=count, start=counter)
+
+            if not result:
+                empty = True
+
+            results.extend(result)
+            counter += count
+
+        return results
+
     async def _bv_brc_api(
         self,
         data_type,
